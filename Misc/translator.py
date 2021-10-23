@@ -15,9 +15,11 @@ def switchNotation(argument):
 
 
 # Encode
-string = "Hello World" # always in english
-language = "Spanish"
-language = switchNotation(language)
+string =  "Hello World"
+targetLanguage = "Spanish"
+sourceLanguage = "English"
+targetLanguage = switchNotation(targetLanguage)
+sourceLanguage = switchNotation(sourceLanguage)
 
 
 fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
@@ -27,8 +29,7 @@ encodedString = fromUtf16(string)
 conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
 # string as
-encodedString = "q=Hello%2C%20world!&target=" + language + "&source=en"
-#                                   target lang ^                    ^ base lang (always in english)
+encodedString = "q=Hello%2C%20world!&target=" + targetLanguage + "&source=" + sourceLanguage
 
 headers = {  # all static fieldse
     "content-type": "application/x-www-form-urlencoded",
