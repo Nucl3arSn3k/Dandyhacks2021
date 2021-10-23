@@ -20,7 +20,7 @@ app.config.from_mapping(config)
 cache = Cache(app)
 
 
-@app.route("/")
+@app.route("/home.html")
 def home():
     return render_template("home.html")
 
