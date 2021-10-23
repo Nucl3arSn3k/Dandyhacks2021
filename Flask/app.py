@@ -15,12 +15,12 @@ config = {
 }
 
 
-TEMPLATE_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/templates"
-STATIC_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/static"
+# TEMPLATE_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/templates"
+# STATIC_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/static"
 
-print(STATIC_DIR)
+# print(STATIC_DIR)
 
-app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
+app = Flask(__name__)
 app.config.from_mapping(config)
 cache = Cache(app)
 
