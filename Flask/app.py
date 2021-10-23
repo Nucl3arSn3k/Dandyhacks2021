@@ -20,14 +20,29 @@ app.config.from_mapping(config)
 cache = Cache(app)
 
 
-@app.route("/home.html")
+@app.route("/")
 def home():
     return render_template("home.html")
 
 
-@app.route("/libros.html")
+@app.route("/home.html")
 def homepage():
+    return render_template("home.html")
+
+
+@app.route("/libros.html")
+def books():
     return render_template("libros.html")
+
+
+@app.route("/literatura.html")
+def books():
+    return render_template("literatura.html")
+
+
+@app.route("/pitmarket.html")
+def books():
+    return render_template("pitmarket.html")
 
 
 @app.route("/cache")
