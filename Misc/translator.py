@@ -6,7 +6,7 @@ from PyQt6 import QtCore
 
 # Encode
 string = "Hello World"
-fromUtf16 = QStringEncoder(QStringEncoder.Utf8)
+fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
 encodedString = fromUtf16(string)
 
 # request logic
