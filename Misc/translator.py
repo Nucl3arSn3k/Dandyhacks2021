@@ -11,6 +11,8 @@ def switchNotation(argument):
         "French": "fr",
         "German": "de",
     }
+    argument = switcher.get(argument, "en")
+
 
 # Encode
 string = "Hello World" # always in english
