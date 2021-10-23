@@ -14,7 +14,13 @@ config = {
     "CACHE_DEFAULT_TIMEOUT": 300,
 }
 
-app = Flask(__name__, template_folder="templates")
+
+TEMPLATE_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/templates"
+STATIC_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/static"
+
+print(STATIC_DIR)
+
+app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 app.config.from_mapping(config)
 cache = Cache(app)
 
