@@ -16,7 +16,7 @@ def switchNotation(argument):
 
 # Encode
 string = "Hello World" # always in english
-language = "Italian"
+language = "Spanish"
 switchNotation(language)
 
 
