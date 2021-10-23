@@ -1,7 +1,7 @@
 import os
 import logging
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_caching import Cache
 
 
@@ -14,27 +14,14 @@ config = {
     "CACHE_DEFAULT_TIMEOUT": 300,
 }
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 app.config.from_mapping(config)
 cache = Cache(app)
 
 
 @app.route("/")
 def home():
-    html = """
-<html>
- <head>
-  <title>
-   Google Cloud Run - Sample Python Flask Example
-  </title>
- </head>
- <body>
-  <p>Look Ma,Google Cloud!</p>
-  <a href="https://cloud.google.com/run/" target="_blank">Google Cloud Run Website</a>
- </body>
-</html>
-"""
-    return html
+    return render_template("home.html")
 
 
 @app.route("/homepage")
