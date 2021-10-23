@@ -28,7 +28,7 @@ conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
 # string as
 encodedString = "q=Hello%2C%20world!&target=" + language + "&source=en"
-#                         target lang ^         ^ base lang (always in english)
+#                                   target lang ^                    ^ base lang (always in english)
 
 headers = {  # all static fieldse
     "content-type": "application/x-www-form-urlencoded",
