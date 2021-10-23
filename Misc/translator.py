@@ -3,9 +3,23 @@ from PyQt6 import QtCore
 
 # qt links: https://doc.qt.io/qtforpython/PySide6/QtCore/QStringConverter.html, https://doc.qt.io/qtforpython/quickstart.html
 
+def switchNotation(argument):
+    switcher = {
+        "English": "en",
+        "Spanish": "es",
+        "Italian": "it",
+        "French": "fr",
+        "German": "de",
+    }
+    return switcher.get(argument, "en")
+
 
 # Encode
-string = "Hello World"
+string = "Hello World" # always in english
+language = "Spanish"
+language = switchNotation(language)
+
+
 fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
 encodedString = fromUtf16(string)
 
@@ -13,10 +27,10 @@ encodedString = fromUtf16(string)
 conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
 # string as
-encodedString = "q=Hello%2C%20world!&target=es&source=en"
-#                         target lang ^         ^ base lang
+encodedString = "q=Hello%2C%20world!&target=" + language + "&source=en"
+#                         target lang ^         ^ base lang (always in english)
 
-headers = {  # all static fields
+headers = {  # all static fieldse
     "content-type": "application/x-www-form-urlencoded",
     "accept-encoding": "application/gzip",
     "x-rapidapi-key": "4679425f88mshcb1cacb0c2357d8p1e02e8jsn4e69292eb0dc",
