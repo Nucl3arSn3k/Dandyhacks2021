@@ -41,7 +41,7 @@ def books():
 
 
 @app.route("/pitmarket.html")
-def books():
+def bookmarket():
     return render_template("pitmarket.html")
 
 
