@@ -25,6 +25,11 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/signin.html")
+def signin():
+    return render_template("signin.html")
+
+
 @app.route("/home.html")
 def homepage():
     return render_template("home.html")
