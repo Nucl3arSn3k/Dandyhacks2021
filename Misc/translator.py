@@ -13,7 +13,7 @@ def switchNotation(argument):
     }
 
 # Encode
-string = "Hello World"
+string = "Hello World" # always in english
 language = "Italian"
 switchNotation(language)
 
@@ -25,10 +25,10 @@ encodedString = fromUtf16(string)
 conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
 # string as
-encodedString = "q=Hello%2C%20world!&target=es&source=en"
-#                         target lang ^         ^ base lang
+encodedString = "q=Hello%2C%20world!&target=" + language + "&source=en"
+#                         target lang ^         ^ base lang (always in english)
 
-headers = {  # all static fields
+headers = {  # all static fieldse
     "content-type": "application/x-www-form-urlencoded",
     "accept-encoding": "application/gzip",
     "x-rapidapi-key": "4679425f88mshcb1cacb0c2357d8p1e02e8jsn4e69292eb0dc",
