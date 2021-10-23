@@ -1,5 +1,18 @@
 import http.client
+import html2text # https://pypi.org/project/html2text/
+from bs4 import BeautifulSoup # https://www.tutorialspoint.com/beautiful_soup/beautiful_soup_installation.htm 
 from PyQt6 import QtCore
+
+
+#
+url = "http://kite.com"
+html = urlopen(url).read()
+soup = BeautifulSoup(html)
+
+for script in soup(["script", "style"]):
+    script.decompose() # deletes out tags
+
+strips = soup.stripped_strings
 
 # qt links: https://doc.qt.io/qtforpython/PySide6/QtCore/QStringConverter.html, https://doc.qt.io/qtforpython/quickstart.html
 
