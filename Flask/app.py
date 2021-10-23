@@ -15,11 +15,6 @@ config = {
 }
 
 
-# TEMPLATE_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/templates"
-# STATIC_DIR = "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/static"
-
-# print(STATIC_DIR)
-
 app = Flask(__name__)
 app.config.from_mapping(config)
 cache = Cache(app)
@@ -30,9 +25,9 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/homepage")
+@app.route("/libros.html")
 def homepage():
-    return "Homepage placeholder or some shit"
+    return render_template("libros.html")
 
 
 @app.route("/cache")
