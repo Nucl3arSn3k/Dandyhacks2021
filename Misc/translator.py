@@ -3,9 +3,21 @@ from PyQt6 import QtCore
 
 # qt links: https://doc.qt.io/qtforpython/PySide6/QtCore/QStringConverter.html, https://doc.qt.io/qtforpython/quickstart.html
 
+def switchNotation(argument):
+    switcher = {
+        "English": "en",
+        "Spanish": "es",
+        "Italian": "it",
+        "French": "fr",
+        "German": "de",
+    }
 
 # Encode
 string = "Hello World"
+language = "Italian"
+switchNotation(language)
+
+
 fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
 encodedString = fromUtf16(string)
 
