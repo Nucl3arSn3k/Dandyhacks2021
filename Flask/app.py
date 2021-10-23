@@ -1,7 +1,8 @@
 import os
 import logging
 
-from flask import Flask, render_template
+from flask import Flask, redirect, request, url_for, render_template
+
 from flask_caching import Cache
 
 
@@ -45,9 +46,20 @@ def books():
     return render_template("literatura.html")
 
 
+@app.route("/messages")
+def messages():
+    return "Messages"
+
+
 @app.route("/pitmarket.html")
 def bookmarket():
     return render_template("pitmarket.html")
+
+
+@app.route("/submit_message", methods=["POST"])
+def submit_message():
+    print(request.form)
+    return redirect(url_for("messages"))
 
 
 @app.route("/cache")
