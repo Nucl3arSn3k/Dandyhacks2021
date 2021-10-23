@@ -11,13 +11,13 @@ def switchNotation(argument):
         "French": "fr",
         "German": "de",
     }
-    argument = switcher.get(argument, "en")
+    return switcher.get(argument, "en")
 
 
 # Encode
 string = "Hello World" # always in english
 language = "Spanish"
-switchNotation(language)
+language = switchNotation(language)
 
 
 fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
