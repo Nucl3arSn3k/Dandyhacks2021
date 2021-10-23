@@ -31,7 +31,7 @@ def homepage():
 
 
 @app.route("/libros.html")
-def books():
+def bookstuff():
     return render_template("libros.html")
 
 
