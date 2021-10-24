@@ -21,9 +21,6 @@ def translate_html_from(url):
 
     return finalPList
 
-
-
-
 # qt links: https://doc.qt.io/qtforpython/PySide6/QtCore/QStringConverter.html, https://doc.qt.io/qtforpython/quickstart.html
 def translate(string):
     resultTargetLang = switchNotation("Spanish")
@@ -34,7 +31,6 @@ def translate(string):
     # request logic
     conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
-    # string as
     encodedString = "q=Hello%2C%20world!&target=" + resultTargetLang + "&source=" + resultSourceLang
 
     headers = {  # all static fields
