@@ -34,7 +34,7 @@ def translate(string):
     conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
     encodedString = (
-        "q=Hello%2C%20world!&target=" + resultTargetLang + "&source=" + resultSourceLang
+        encodedString + "&target=" + resultTargetLang + "&source=" + resultSourceLang
     )
 
     headers = {  # all static fields
