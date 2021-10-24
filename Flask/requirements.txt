@@ -1,2 +1,6 @@
 Flask==2.0.2
 flask_caching == 1.10.1
+PyQt6 == 6.2.0
+requests == 2.25.1
+urllib3 == 1.26.7
+html2text == 2020.1.16

@@ -4,7 +4,8 @@ import logging
 from flask import Flask, redirect, request, url_for, render_template
 from flask_caching import Cache
 import requests
-import firebase_admin
+
+# import firebase_admin
 
 from translator import translate_html_from
 

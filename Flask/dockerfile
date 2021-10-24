@@ -8,7 +8,7 @@
 # FROM python:3-slim
 #
 # python:3-alpine builds a 97 MB image - 33.2 MB in Google Container Registry
-FROM python:3-slim
+FROM python
 
 # RUN apt-get update -y
 # RUN apt-get install -y python-pip
