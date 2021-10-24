@@ -18,10 +18,12 @@ def translate_html_from(url):
     for p in pList:
         resultPList.append(re.sub(" +", " ", re.sub("<.*?>", " ", p)))
 
+    # print(resultPList)
     finalPList = []
     for p in resultPList:
         finalPList.append(translate(p))
 
+    print(finalPList)
     return finalPList
 
 
