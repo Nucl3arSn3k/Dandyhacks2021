@@ -37,7 +37,7 @@ def home():
 def transaltor():
     urlv2 = request.url
     print("ASSUMING DIRECT CONTROL!!!11!")
-    # list_scrape = translate_html_from(urlv2)
+    # list_scrape = translate_html_from(repr(urlv2))
     # open_file = open("/templates/translated.html", "w")
     # open_file.write(list_scrape)
     return "Beans"
