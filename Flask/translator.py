@@ -1,4 +1,5 @@
 import http.client
+import json
 import re
 import html2text  # https://pypi.org/project/html2text/
 from PyQt6 import QtCore
@@ -34,18 +35,13 @@ def translate(string):
     conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
     encodedString = (
-        "q="
-        + encodedString
-        + "&target="
-        + resultTargetLang
-        + "&source="
-        + resultSourceLang
+        "q="+ encodedString + "&target=" + resultTargetLang + "&source=" + resultSourceLang
     )
 
     headers = {  # all static fields
         "content-type": "application/x-www-form-urlencoded",
         "accept-encoding": "application/gzip",
-        "x-rapidapi-key": "4679425f88mshcb1cacb0c2357d8p1e02e8jsn4e69292eb0dc",
+        "x-rapidapi-key": "5c9ed3bc87mshc7f85a2f9e9e010p12d5f4jsn46fd30e26dde",
         "x-rapidapi-host": "google-translate1.p.rapidapi.com",
     }
 
@@ -53,7 +49,8 @@ def translate(string):
 
     res = conn.getresponse()
     data = res.read()
-    return data.decode("utf-8")
+    lastLay = json.loads(data.decode("utf-8"))["data"]["translations"][0]["translatedText"]
+    return lastLay
 
 
 def switchNotation(argument):
