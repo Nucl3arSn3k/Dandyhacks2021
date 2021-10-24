@@ -44,8 +44,12 @@ def homepage():
 
 @app.route("/libros.html")
 def bookstuff():
-    # translate_html_from()
-    print(request.url)
+    # list_scrape = []
+    # print("This is definitely the current URL" + request.url)
+    urlv2 = request.url
+    list_scrape = translate_html_from(urlv2)
+    open_file = open("/templates/translated.html", "w")
+    open_file.write(list_scrape)
     return render_template("libros.html")
 
 
