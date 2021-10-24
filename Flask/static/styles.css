@@ -148,4 +148,8 @@ article a {
   font-size: 20px;
   line-height: 2em;
 }
- 
+footer h2, .large-8-columns, .insta{
+  text-align: center;
+}
+
+
