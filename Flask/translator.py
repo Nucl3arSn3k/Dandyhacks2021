@@ -25,8 +25,8 @@ def translate_html_from(url):
 
 # qt links: https://doc.qt.io/qtforpython/PySide6/QtCore/QStringConverter.html, https://doc.qt.io/qtforpython/quickstart.html
 def translate(string):
-    resultTargetLang = switchNotation("Spanish")
-    resultSourceLang = switchNotation("English")
+    resultTargetLang = switchNotation("English")
+    resultSourceLang = switchNotation("Español")
     fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
     encodedString = fromUtf16(string)
 
