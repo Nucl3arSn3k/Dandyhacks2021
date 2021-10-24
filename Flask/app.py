@@ -6,6 +6,9 @@ from flask_caching import Cache
 import requests
 import firebase_admin
 
+from translator import translate_html_from
+
+
 # from firebase import firebase
 
 
@@ -41,6 +44,8 @@ def homepage():
 
 @app.route("/libros.html")
 def bookstuff():
+    # translate_html_from()
+    print(request.url)
     return render_template("libros.html")
 
 
@@ -67,7 +72,8 @@ def submit_message():
     open_file = open("demofile2.json", "w")
     open_file.write(json_object)
     requests.put(
-        url="https://leelo-329900-default-rtdb.firebaseio.com/.json", json=json_object
+        url="https://leelo-329900-default-rtdb.firebaseio.com/.json",
+        json=json_object,  # shoves the comments users make on this page to firebase
     )
     return redirect(url_for("messages"))
 
