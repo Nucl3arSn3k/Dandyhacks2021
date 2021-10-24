@@ -32,6 +32,15 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/transalation")
+def transaltor():
+    urlv2 = request.url
+    list_scrape = translate_html_from(urlv2)
+    # open_file = open("/templates/translated.html", "w")
+    # open_file.write(list_scrape)
+    return "Beans"
+
+
 @app.route("/signin.html")
 def signin():
     return render_template("signin.html")
@@ -45,11 +54,8 @@ def homepage():
 @app.route("/libros.html")
 def bookstuff():
     # list_scrape = []
-    # print("This is definitely the current URL" + request.url)
-    urlv2 = request.url
-    list_scrape = translate_html_from(urlv2)
-    open_file = open("/templates/translated.html", "w")
-    open_file.write(list_scrape)
+    print("This is definitely the current URL" + request.url)
+
     return render_template("libros.html")
 
 
@@ -60,7 +66,7 @@ def books():
 
 @app.route("/messages")
 def messages():
-    return "Messages"
+    return "Message sent to backend"
 
 
 @app.route("/pitmarket.html")
