@@ -10,7 +10,7 @@ def translate_html_from(url):
 
     rawHtml = urlopen(url).read()
 
-    pList = re.findall("<p>(.*?)</p>", rawHtml)
+    pList = re.findall("<p>(.*?)</p>", repr(rawHtml))
 
     resultPList = []
     for p in pList:
