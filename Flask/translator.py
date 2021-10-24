@@ -1,6 +1,7 @@
 import http.client
 import json
 import re
+import urllib.parse
 import html2text  # https://pypi.org/project/html2text/
 from PyQt6 import QtCore
 from urllib.request import urlopen
@@ -28,19 +29,13 @@ def translate_html_from(url):
 def translate(string):
     resultTargetLang = switchNotation("English")
     resultSourceLang = switchNotation("Español")
-    fromUtf16 = QtCore.QStringEncoder(QtCore.QStringEncoder.Encoding.Utf8)
-    encodedString = fromUtf16(string)
+    encodedString = urllib.parse.quote(string)
 
     # request logic
     conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
     encodedString = (
-        "q="
-        + encodedString
-        + "&target="
-        + resultTargetLang
-        + "&source="
-        + resultSourceLang
+        "q="+ encodedString + "&target=" + resultTargetLang + "&source=" + resultSourceLang
     )
 
     headers = {  # all static fields
@@ -54,9 +49,7 @@ def translate(string):
 
     res = conn.getresponse()
     data = res.read()
-    lastLay = json.loads(data.decode("utf-8"))["data"]["translations"][0][
-        "translatedText"
-    ]
+    lastLay = json.loads(data.decode("utf-8"))["data"]["translations"][0]["translatedText"]
     return lastLay
 
 
