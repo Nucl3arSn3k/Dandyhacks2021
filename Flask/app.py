@@ -1,7 +1,10 @@
 import os
+import json
 import logging
 from flask import Flask, redirect, request, url_for, render_template
 from flask_caching import Cache
+import requests
+import firebase_admin
 
 # from firebase import firebase
 
@@ -59,6 +62,13 @@ def bookmarket():
 @app.route("/submit_message", methods=["POST"])
 def submit_message():
     print(request.form)
+    message = {"body": request.form["message"], "who": request.form["who"]}
+    json_object = json.dumps(message, indent=4)
+    open_file = open("demofile2.json", "w")
+    open_file.write(json_object)
+    requests.put(
+        url="https://leelo-329900-default-rtdb.firebaseio.com/.json", json=json_object
+    )
     return redirect(url_for("messages"))
 
 
