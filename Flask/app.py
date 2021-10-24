@@ -2,9 +2,9 @@ import os
 import logging
 from flask import Flask, redirect, request, url_for, render_template
 from flask_caching import Cache
-from firebase import firebase
-import firebase_admin
-from firebase_admin import credentials, db
+
+# from firebase import firebase
+
 
 # Change the format of messages logged to Stackdriver
 logging.basicConfig(format="%(message)s", level=logging.INFO)
@@ -19,12 +19,6 @@ config = {
 app = Flask(__name__)
 app.config.from_mapping(config)
 cache = Cache(app)
-
-cred = credentials.Certificate(
-    "D:/User/Documents/GitHub/CSC 172/Dandyhacks2021/Flask/leelo-329900-firebase-adminsdk-fbb7w-a0d372179e.json"
-)
-firebase_admin.initialize_app(cred)
-ref = db.reference("/")
 
 
 @app.route("/")
