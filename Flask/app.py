@@ -34,12 +34,14 @@ def home():
 
 
 @app.route("/transalation")
-def transaltor():
+def transaltor():  # TRANSLATION FEATURE IS BROKEN
     urlv2 = request.url
-    print("ASSUMING DIRECT CONTROL!!!11!")
-    # list_scrape = translate_html_from(repr(urlv2))
-    # open_file = open("/templates/translated.html", "w")
-    # open_file.write(list_scrape)
+    print("url is " + urlv2)
+    list_scrape = translate_html_from(repr(urlv2))
+    open_file = open(
+        "/templates/translated.html", "w"
+    )  # returns something weird. Am uncertain what this is trying to do
+    open_file.write(list_scrape)
     return "Beans"
 
 
