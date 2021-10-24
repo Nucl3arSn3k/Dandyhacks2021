@@ -35,7 +35,12 @@ def translate(string):
     conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
 
     encodedString = (
-        "q="+ encodedString + "&target=" + resultTargetLang + "&source=" + resultSourceLang
+        "q="
+        + encodedString
+        + "&target="
+        + resultTargetLang
+        + "&source="
+        + resultSourceLang
     )
 
     headers = {  # all static fields
@@ -49,7 +54,9 @@ def translate(string):
 
     res = conn.getresponse()
     data = res.read()
-    lastLay = json.loads(data.decode("utf-8"))["data"]["translations"][0]["translatedText"]
+    lastLay = json.loads(data.decode("utf-8"))["data"]["translations"][0][
+        "translatedText"
+    ]
     return lastLay
 
 
